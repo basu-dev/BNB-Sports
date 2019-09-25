@@ -10,6 +10,7 @@
       margin-top:0px;
   }
       .navbar {
+        
     margin-bottom: 0;
     background-color: #f4511e;
     z-index: 9999;
@@ -18,9 +19,11 @@
     line-height: 1.42857143 !important;
     letter-spacing: 4px;
     border-radius: 0;
+    margin:0;
   }
   
   .navbar li a, .navbar .navbar-brand {
+    
     color: #fff !important;
   }
   
