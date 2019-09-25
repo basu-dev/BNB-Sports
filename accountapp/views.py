@@ -43,6 +43,7 @@ def newTeamMember(request):
             person.description = description
         if image:
             person.image = image
+        
 
         person.save()
         return redirect("/")
@@ -67,8 +68,7 @@ def signup(request):
         newuser.username = request.POST["username"]
         newuser.password1 = request.POST["password1"]
         newuser.password2 = request.POST["password2"]
-        newuser.first_name = request.POST["first_name"]
-        newuser.last_name = request.POST["last_name"]
+
         validation = 1
         if newuser.password1 == newuser.password2:
             if len(newuser.password1) < 6:
@@ -89,16 +89,12 @@ def signup(request):
             fe.username_error = "User already exits!"
             validation = 0
             ue = "is-invalid"
-        if newuser.first_name and newuser.last_name:
-            v = 1
-        else:
-            validation = 0
-            fe.name_error = "First and last name is required!"
-            ne = "is-invalid"
+        
+        
         if validation:
             newuser.set_password(newuser.password1)
             newuser.save()
-            return redirect("/login/")
+            return redirect("/accounts/login/")
         else:
             return render(
                 request,

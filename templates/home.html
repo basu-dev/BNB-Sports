@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
     {% comment %} <link rel="stylesheet" href="{% static 'css/gallery.css' %}"> {% endcomment %}
 
     <link href="https://fonts.googleapis.com/css?family=Manjari|Rubik+Mono+One&display=swap" rel="stylesheet">
@@ -25,44 +27,7 @@
 </head>
 
 <body class=text-white id="homepage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<style>
-.carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-    margin-top:0px;
-}
-    .navbar {
-  margin-bottom: 0;
-  background-color: #f4511e;
-  z-index: 9999;
-  border: 0;
-  font-size: 12px !important;
-  line-height: 1.42857143 !important;
-  letter-spacing: 4px;
-  border-radius: 0;
-}
 
-.navbar li a, .navbar .navbar-brand {
-  color: #fff !important;
-}
-
-.navbar-nav li a:hover, .navbar-nav li.active a{
-  color: #f4511e !important;
-  background-color: #fff !important;
-}
-
-.navbar-default .navbar-toggle {
-  border-color: transparent;
-  color: #fff !important;
-}
-
-
- </style>
 
 
 <header>
@@ -133,17 +98,16 @@
 <div class="about jumbotron" id=about >
 <strong class=titlemain>ABOUT</strong>
 <p >{% lorem 5 %}</p>
-<form action="../about" type=get>
-<button class="btn btn-primary btn-sm" type=submit>Read More</button>
+
 </div>
-</form>
+
 <div class=titlemain>TOP CLIENTS</div>
 <div class=close-clients>
 
 </div>
-<div  id="Events">
-<div class="titlebox">
-<div class="btn-group">
+<div  id="Events"><div class=titlemain><h1>EVENTS</h1></div>
+<div class="titlebox text-center">
+<div class="btn-group mt-0">
 
 <a><div class="upcoming " id="upcoming_events">Upcoming</div></a>
 <a><div class="completed" id="completed_events">Completed</div></a>
@@ -153,7 +117,7 @@
 
 
 
-  <div class=titlemain><h1>EVENTS</h1></div>
+  
 <main id=upcoming_events_main>
 
 {% for event in  upcoming_events %}
@@ -187,9 +151,11 @@
 {% endfor %}
 <div  id="Events">
 </main>
+{% if upcoming_enents%}
 <form action="../upcoming_events/" type=get>
 <button class="btn btn-primary btn-sm" type=submit>See More</button>
 </form>
+{%endif%}
 </div>
 
 <div id=completed_events_main style="display:none">
@@ -224,9 +190,11 @@
   {% endfor %}
     
   </main>
+  {%if completed_events%}
   <form action="../completedevents/" type=get>
 <button class="btn btn-primary btn-sm" type=submit>See More</button>
 </form>
+{% endif%}
   </div>
 
 <br><br>
@@ -235,8 +203,8 @@
 </div>
 <div class=row>
 {%for person in team%}
-<div class="col-sm-6 col-md-4 col-lg-3">
-<div class ="imagecontain">
+<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 profilecontainer">
+<div class ="imagecontain ">
 
 <img class="img" src={{person.image.url}} style="height:100%;width:100%;object-fit:cover"> 
 <a href="/accounts/team_profile/{{person.id}}/"><div class="middle"><p class=text >View Profile</p></div></a>
@@ -251,10 +219,10 @@
 
 {%endfor%}
 {%if user.is_authenticated%}
-<div class="col-sm-6 col-md-4 col-lg-3">
+<div class="col-sm-6 col-md-6 col-lg-3">
 <div class ="imagecontain">
 
-<img class="img" src="../static/icons/B&Blogo.png" style="height:100%;width:100%;object-fit:cover"> 
+<img class="img profileimage" src="../static/icons/B&Blogo.png" style="height:100%;width:100%;object-fit:cover"> 
 <a href="/accounts/add_member_profile/"><div class="middle"><p class=text >Add Member</p></div></a>
 
 </div>
@@ -270,24 +238,47 @@
 <br><br>
 <div class=titlemain id=videos>VIDEOS</div>
 <main>
-{%for member in team%}
+    {%for video in videos%}
+    
+    <div class=card>
+    <div class=contain>
+    
+    <iframe width="100%%" height="500"
+    src="https://www.youtube.com/embed/{{video.url}}">
+    </iframe>
+    </div> 
+    
+    </div>
+    {%endfor%}
+    
 
-<div class=card>
-<div class=contain>
-
-<iframe width="100%%" height="500"
-src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1">
-</iframe>
-</div> 
-
-</div>
-{%endfor%}
+{%if user.is_authenticated%}
+<div class="card" style="background-color:gray">
+    <div class="">Add Video</div>
+  <div class="contain" style="top:30%">
+     
+  <form action="/videos/" method="POST" >
+  <div>Video Title</div>
+  <input type=text name="video_title" class="form-control" placeholder="Video Title" required>
+  <div>Video Url</div>
+  <input type=text name="video_url" class="form-control" placeholder="Youtube Video Link (Url)" required>
+  {%csrf_token%}
+  <button class="form-control btn btn-md" type=submit >Add</button>  
+  </form>
+  </div>   
+  </div>
+  
+   
+  {%endif%}
 </main>
-<br>
-<form action="../videos" type=get>
+<br><br>
+{%if videos%}
+<form action="../videos" type=get class="mt-2">
 <button class="btn btn-primary btn-sm" type=submit>More Videos</button>
 </form>
-<br><br>
+{%endif%}
+
+<br>
 <footer id="footer" class="footer-1">
 <div class="main-footer widgets-dark typo-light">
 <div class="container">

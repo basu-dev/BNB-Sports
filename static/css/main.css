@@ -167,7 +167,7 @@ a:active {
     margin: 0;
     position: absolute;
     top: 10%;
-    left: 10%;
+    left: 8%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
@@ -178,9 +178,13 @@ a:active {
     margin: 0;
     position: absolute;
     top: 10%;
-    left: 10%;
+    left: 8%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+  }
+  .profileimage{
+      width:30vw;
+      height:auto;
   }
 }
 
@@ -260,7 +264,7 @@ a:active {
   position: relative;
 }
 .about {
-  margin: 2rem;
+ margin:1rem;
   position: relative;
   background-color: black;
   font-family: Rajdhani, sans-serif;

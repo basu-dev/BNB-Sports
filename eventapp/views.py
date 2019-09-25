@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.forms import modelformset_factory
 from django.core.files.storage import FileSystemStorage
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
-from django.views import generic
+
+
+
 from django.http import Http404, JsonResponse
-from django.core.exceptions import ObjectDoesNotExist
+
 from django.contrib import messages
 from .models import *
 import json
@@ -99,6 +99,9 @@ def memberimage(request):
 
 
 def homePage(request):
+    videos = models.Videos.objects.all().order_by("-id")[
+            :3
+        ]
     people = People.objects.all()
     upcoming_events = models.Postevent.objects.filter(completed=False).order_by(
         "-created_date"
@@ -129,6 +132,7 @@ def homePage(request):
             "team": people,
             "upcoming_events": upcoming_events,
             "completed_events": completed_events,
+            "videos":videos
         },
     )
 
@@ -148,6 +152,7 @@ def event_detail(request, id):
 
 
 def upcoming_events(request):
+    more=False
     ids = []
     events = models.Postevent.objects.filter(completed=False).order_by("-created_date")[
         :10
@@ -155,26 +160,23 @@ def upcoming_events(request):
     count = events.count()
     if count == 10:
         more = True
-    for event in events:
-        event.images = models.Images.objects.filter(post=event)[:1]
-        ids.append(event.id)
-        try:
-            memberobjs = models.Members.objects.filter(post=event)
-            for memberobj in memberobjs:
-                event.person = models.People.objects.get(id=memberobj.person.id)
-        except:
-            pass
-    ids.sort()
-    largest_id = ids[0]
-    # return HttpResponse("not found")
+    for i in events:
+        ids.append(i.id)
+        i.reduceddescription = i.description[:100]
+        i.images = models.Images.objects.filter(post=i)
+    if(len(ids)):
+        ids.sort()
+        smallest_id = ids[0]
+    else:
+        smallest_id = 0
     return render(
         request,
         "events.html",
-        {"events": events, "largest_id": largest_id, "completed": "u", "more": more},
+        {"events": events, "smallest_id": smallest_id, "completed": "u", "more": more},
     )
 
-
 def completed_events(request):
+    more=False
     ids = []
     events = models.Postevent.objects.filter(completed=True).order_by("-created_date")[
         :10
@@ -186,12 +188,15 @@ def completed_events(request):
         ids.append(i.id)
         i.reduceddescription = i.description[:100]
         i.images = models.Images.objects.filter(post=i)
-    ids.sort()
-    largest_id = ids[0]
+    if(len(ids)):
+        ids.sort()
+        smallest_id = ids[0]
+    else:
+        smallest_id = 0
     return render(
         request,
         "events.html",
-        {"events": events, "largest_id": largest_id, "completed": "c", "more": more},
+        {"events": events, "smallest_id": smallest_id, "completed": "c", "more": more},
     )
 
 
@@ -212,8 +217,11 @@ def more_events(request, c, id):
                 ids.append(i.id)
                 i.reduceddescription = i.description[:100]
                 i.images = models.Images.objects.filter(post=i)
+            if(len(ids)):
                 ids.sort()
-                largest_id = ids[0]
+                smallest_id = ids[0]
+            else:
+                smallest_id = 0
         except:
             events = []
 
@@ -222,7 +230,7 @@ def more_events(request, c, id):
             "events.html",
             {
                 "events": events,
-                "largest_id": largest_id,
+                "smallest_id": smallest_id,
                 "completed": "c",
                 "more": more,
             },
@@ -242,14 +250,17 @@ def more_events(request, c, id):
             ids.append(i.id)
             i.reduceddescription = i.description[:100]
             i.images = models.Images.objects.filter(post=i)
-        ids.sort()
-        largest_id = ids[0]
+        if(len(ids)):
+                ids.sort()
+                smallest_id = ids[0]
+        else:
+            smallest_id = 0
         return render(
             request,
             "events.html",
             {
                 "events": events,
-                "largest_id": largest_id,
+                "smallest_id": smallest_id,
                 "completed": "c",
                 "more": more,
             },
@@ -262,8 +273,51 @@ def more_events(request, c, id):
 def deletepost(request, id):
     deleted = models.Postevent.objects.get(id=id)
     deleted.delete()
-    return render(request, "gallery/deleted.html")
-
+    return redirect("/")
+def videos(request):
+    if request.method=="GET":
+        more=False
+        ids = []
+        videos = models.Videos.objects.all().order_by("-id")[
+            :10
+        ]
+        count = videos.count()
+        if count == 10:
+            more = True
+        
+        if(len(ids)):
+            ids.sort()
+            smallest_id = ids[0]
+        else:
+            smallest_id = 0
+        return render(
+            request,
+            "videos.html",
+            {"videos": videos, "smallest_id": smallest_id, "more": more}
+        )
+    elif request.method=="POST":
+        title=request.POST["video_title"]
+        url=request.POST["video_url"]
+        video=models.Videos()
+        if(title):
+            video.title=title
+            if(url):
+                link_id=[]
+                index=0
+                for i in url:
+                    index+=1
+                    if (i == '='):
+                        link_id=url[index:len(url)]
+                        video.url=link_id
+                        video.save()
+                        break
+                        
+                return redirect("/")
+                    
+                
+        else:
+            return HttpResponse("There was an error.. Try again!!!")
+        return redirect("/")
 
 @login_required
 def add_members(request, id):
@@ -273,7 +327,7 @@ def add_members(request, id):
         for person in people:
             try:
                 member = models.Members.objects.filter(event=event).get(person=person)
-                if member:
+                if member:  
                     person.truth = True
             except:
                 person.truth = False

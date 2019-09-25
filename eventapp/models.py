@@ -59,10 +59,12 @@ class People(models.Model):
     position = models.CharField(max_length=20, blank=True, null=True)
     description = models.TextField(blank=True)
     contact_no = models.IntegerField(10, blank=True, null=True)
-    image = models.ImageField(upload_to="people/", null=True, blank=True)
+    image = models.ImageField(upload_to="people/", null=True, default="people/default/profile_picture.jpg/")
 
 
 class Members(models.Model):
     person = models.ForeignKey(People, on_delete=models.CASCADE)
     event = models.ForeignKey(Postevent, on_delete=models.CASCADE)
-
+class Videos(models.Model):
+    title=models.CharField(max_length=50)
+    url=models.TextField()

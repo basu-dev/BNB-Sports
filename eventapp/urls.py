@@ -15,5 +15,6 @@ urlpatterns = [
     path("eventapp/add_member/<int:pid>/<int:mid>", views.add_member, name="addmember"),
     path("postimage/", views.memberimage),
     path("more_events/<str:c>/<int:id>/", views.more_events),
+    path("videos/",views.videos),
 ]
 
