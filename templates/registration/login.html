@@ -13,7 +13,7 @@
     </div>
     <div class='col-lg-8 col-md-10'>
 
-        <h2 class='h2'>One step away!</h2>
+        <h2 class='titlemain mb-0'>Admin Login</h2>
         <form class='form' method='POST'>
             {% if formerror.message %}
             <div style='color:red;'>
@@ -21,9 +21,9 @@
             </div>
             {%endif%}
             <label for='username'></label>
-            <input type='text' name='username' class='form-control' required maxlength="100" >
+            <input type='text' name='username' class='form-control' required maxlength="100"  placeholder="Username">
             <label for='password'></label>
-            <input type='password' name='password' id='password' class='form-control' required maxlength="16">
+            <input type='password' name='password' id='password' class='form-control' required maxlength="16"  placeholder="Password" >
             {%csrf_token%}
             <br>
             <button class='btn btn-primary form-control' type='submit'>Login</button>
