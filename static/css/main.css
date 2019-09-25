@@ -1,0 +1,366 @@
+.mybrand {
+  position: fixed;
+}
+body,
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat";
+  background: radial-gradient(50% 50% at 50% 50%, #2b3780 0%, #0b1023 100%);
+  font-family: "Manjari", sans-serif;
+}
+
+h1 {
+  margin: 5rem;
+}
+
+.logo_container {
+  display: flex;
+}
+.title_rectangle {
+  position: absolute;
+  width: 137px;
+  height: 35px;
+  left: 0px;
+  top: 188px;
+  background: #181818;
+}
+.titlebox {
+  position: relative;
+  height: 200px;
+}
+.btn-group {
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.upcoming {
+  position: relative;
+  top: 8rem;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(230, 230, 230);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  width: 10rem;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(252, 134, 16);
+}
+.contain {
+  position: relative;
+}
+.completed {
+  margin-left: 1rem;
+  position: relative;
+  top: 8rem;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(230, 230, 230);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  width: 10rem;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(252, 134, 16);
+}
+.upcoming:hover,
+.completed:hover {
+  border-color: #ff8d1e;
+}
+.img {
+  border-radius: 2px;
+  opacity: 1;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+.middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.text {
+  background-color: rgba(216, 224, 226, 0.7);
+  border: 1px solid white;
+  border-radius: 30px;
+  color: white;
+  font-size: 1.4em;
+  padding: 10px 20px;
+  text-align: center;
+  align-content: center;
+  font-family: "Manjari";
+  font-weight: bold;
+}
+.middle:hover .text {
+  background-color: #9698a186;
+  cursor: pointer;
+}
+
+.contain:hover .img {
+  opacity: 0.6;
+}
+.contain:hover .middle {
+  opacity: 1;
+}
+.title {
+  font-size: 30px;
+  font-family: "Rubik Mono One", sans-serif;
+  color: black;
+}
+.date {
+  font-family: "Rajdhani", sans-serif;
+}
+.title-expanded {
+  font-size: 40px;
+}
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+@media only screen and (max-width: 600px) {
+}
+.titlebox {
+  position: relative;
+  height: 200px;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .btn-group {
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    left: 10rem;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .btn-group {
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .btn-group {
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .btn-group {
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
+.textcontainer {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  top: 0px;
+}
+
+.imagetext {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -100%);
+  color: black;
+  font-family: Rajdhani, sans-serif;
+  font-size: 20px;
+  overflow: hidden;
+}
+
+.swiper-container {
+  width: 100%;
+}
+
+/* Position the navbar container inside the image */
+.containerimage {
+  position: absolute;
+  margin: 20px;
+  width: 100vw;
+}
+
+/* The navbar */
+
+/* Navbar links */
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.homecontainer {
+  position: relative;
+}
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  color: black;
+}
+
+.topnav {
+  overflow: hidden;
+  float: top;
+  position: absolute;
+  top: 1rem;
+  opacity: 1;
+  text-align: top;
+}
+.swiper-slide img {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.imagewrapper {
+  position: relative;
+}
+.about {
+  margin: 2rem;
+  position: relative;
+  background-color: black;
+  font-family: Rajdhani, sans-serif;
+  font-size: 18px;
+}
+button .read-more {
+  position: absolute;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(230, 230, 230);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-right: 5rem;
+}
+.close-clients {
+  height: 15rem;
+  background-color: rgb(255, 141, 30);
+}
+.titlemain {
+  margin: 2rem;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: rgb(252, 134, 16);
+  font-size: 3rem;
+  font-family: "Manjari";
+}
+.member_container {
+  margin: 15rem;
+}
+main div {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(10rem, 1fr)) [auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-gap: 1rem;
+  cursor: pointer;
+}
+
+main div .card {
+  border-radius: 5px;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+}
+
+main div .card:hover {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  border: 2px solid #42b2f3;
+}
+
+main div .card .info {
+  padding: 1rem;
+}
+
+main div .card img {
+  width: 100%;
+}
+
+main div .card .desc {
+  color: black;
+}
+.imagecontain {
+  border: 2px solid white;
+  border-radius: 5px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+.imagecontain .middle .text {
+  font-size: 18px;
+}
+.imagecontain:hover .img {
+  opacity: 0.6;
+}
+.imagecontain:hover .middle {
+  opacity: 1;
+}
+.imagecontain:hover .profilename {
+  opacity: 0;
+}
+.profilename {
+  transition: 1s ease;
+  opacity: 1;
+  position: absolute;
+  bottom: 1%;
+  left: 1%;
+  /* transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); */
+  text-align: left;
+}
+.name {
+  font-size: 1.4em;
+
+  font-weight: bold;
+}
+.position {
+  font-size: 1em;
+  font-family: "Manjari";
+}

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html class="no-js">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</div>
+ <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/gallery.css' %}"> {% endcomment %}
+
+    <link href="https://fonts.googleapis.com/css?family=Manjari|Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Rajdhani:700&display=swap" rel="stylesheet">
+</head>
+
+<body class=text-white id="homepage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<style>
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    margin-top:0px;
+}
+    .navbar {
+  margin-bottom: 0;
+  background-color: #f4511e;
+  z-index: 9999;
+  border: 0;
+  font-size: 12px !important;
+  line-height: 1.42857143 !important;
+  letter-spacing: 4px;
+  border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand {
+  color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a{
+  color: #f4511e !important;
+  background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+  color: #fff !important;
+}
+
+
+ </style>
+
+
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" style="position:relative" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+    <nav class="navbar mynavv navbar-default navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Start Bootstrap</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link " href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Events">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#team">Team</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+</nav>
+     
+      <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">First Slide</h2>
+          <p class="lead imagetext">This is a description for the first slide.</p>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">Second Slide</h2>
+          <p class="lead">This is a description for the second slide.</p>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">Third Slide</h2>
+          <p class="lead">This is a description for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+  </div>
+</header>
+
+<div class="about jumbotron" id=about >
+<strong class=titlemain>ABOUT</strong>
+<p >{% lorem 5 %}</p>
+<form action="../about" type=get>
+<button class="btn btn-primary btn-sm" type=submit>Read More</button>
+</div>
+</form>
+<div class=titlemain>TOP CLIENTS</div>
+<div class=close-clients>
+
+</div>
+<div  id="Events">
+<div class="titlebox">
+<div class="btn-group">
+
+<a><div class="upcoming " id="upcoming_events">Upcoming</div></a>
+<a><div class="completed" id="completed_events">Completed</div></a>
+</div>
+</div>
+<br>
+
+
+
+  <div class=titlemain><h1>EVENTS</h1></div>
+<main id=upcoming_events_main>
+
+{% for event in  upcoming_events %}
+
+<div class=card>
+{%if user.is_authenticated%}
+  <a class="confirm-delete" href="{% url 'gallery:delete' id=event.id %}"><span class="fa fa-remove"></span></a>
+  {%endif%}
+    
+    <div class="info">
+    <div class='title'>{{event.title|title}}</div>
+   
+    <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i>{{event.created_date}}</p>
+    <p class="desc">{{event.description|truncatewords:10}}</p>
+    </div>
+<div class="contain embed-responsive embed-responsive-16by9">
+      {%for img in event.images%}
+        <img class ="img embed-responsive-item" src={{img.image.url}} height=500px width=100%>
+        {% endfor %}
+        <a href="{% url 'gallery:eventdetail' id=event.id %}">
+        <div class="middle">
+        <div class=text>View Event</div>
+        </div>
+        </a>
+
+  </div>
+  
+  </div>
+</div>
+
+{% endfor %}
+<div  id="Events">
+</main>
+<form action="../upcoming_events/" type=get>
+<button class="btn btn-primary btn-sm" type=submit>See More</button>
+</form>
+</div>
+
+<div id=completed_events_main style="display:none">
+<main>
+
+{% for event in  completed_events %}
+
+<div class=card>
+{%if user.is_authenticated%}
+  <a class="confirm-delete" href="{% url 'gallery:delete' id=event.id %}"><span class="fa fa-remove"></span></a>
+  {%endif%}
+    
+    <div class="info">
+    <div class='title'>{{event.title|title}}</div>
+   
+    <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i>{{event.created_date}}</p>
+    <p class="desc">{{event.description|truncatewords:10}}</p>
+    </div>
+<div class="contain embed-responsive embed-responsive-16by9">
+      {%for img in event.images%}
+        <img class ="img embed-responsive-item" src={{img.image.url}} height=500px width=100%>
+        {% endfor %}
+        <a href="{% url 'gallery:eventdetail' id=event.id %}">
+        <div class="middle">
+        <div class=text>View Event</div>
+        </div>
+        </a>
+
+  </div>
+  
+  </div>
+  {% endfor %}
+    
+  </main>
+  <form action="../completedevents/" type=get>
+<button class="btn btn-primary btn-sm" type=submit>See More</button>
+</form>
+  </div>
+
+<br><br>
+<div class=abou>
+<div class=titlemain id=team>OUR TEAM</div>
+</div>
+<div class=row>
+{%for person in team%}
+<div class="col-sm-6 col-md-4 col-lg-3">
+<div class ="imagecontain">
+
+<img class="img" src={{person.image.url}} style="height:100%;width:100%;object-fit:cover"> 
+<a href="/accounts/team_profile/{{person.id}}/"><div class="middle"><p class=text >View Profile</p></div></a>
+
+<div class="profilename">
+<div class="name">{{person.first_name}} {{person.last_name}}</div>
+<div class= "position">{{person.position}}</div>
+</div>
+</div>
+
+</div>
+
+{%endfor%}
+{%if user.is_authenticated%}
+<div class="col-sm-6 col-md-4 col-lg-3">
+<div class ="imagecontain">
+
+<img class="img" src="../static/icons/B&Blogo.png" style="height:100%;width:100%;object-fit:cover"> 
+<a href="/accounts/add_member_profile/"><div class="middle"><p class=text >Add Member</p></div></a>
+
+</div>
+</div>
+
+</div>
+{%endif%}
+</div>
+
+
+
+
+<br><br>
+<div class=titlemain id=videos>VIDEOS</div>
+<main>
+{%for member in team%}
+
+<div class=card>
+<div class=contain>
+
+<iframe width="100%%" height="500"
+src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1">
+</iframe>
+</div> 
+
+</div>
+{%endfor%}
+</main>
+<br>
+<form action="../videos" type=get>
+<button class="btn btn-primary btn-sm" type=submit>More Videos</button>
+</form>
+<br><br>
+<footer id="footer" class="footer-1">
+<div class="main-footer widgets-dark typo-light">
+<div class="container">
+<div class="row">
+  
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="widget subscribe no-box">
+<img src="{% static 'icons/B&Blogo.png'%}" height=150px width=150px/>
+<h5 class="widget-title">B & B Multimedia<span></span></h5>
+<p>About the company, little discription will goes here.. </p>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="widget no-box">
+<h5 class="widget-title">Quick Links<span></span></h5>
+<ul class="thumbnail-widget">
+<li>
+<div class="thumb-content"><a href="#.">Events</a></div>	
+</li>
+<li>
+<div class="thumb-content"><a href="#.">Gallery</a></div>	
+</li>
+<li>
+<div class="thumb-content"><a href="#.">Event/Tickets</a></div>	
+</li>
+<li>
+<div class="thumb-content"><a href="#.">News</a></div>	
+</li>
+<li>
+<div class="thumb-content"><a href="#.">Contact</a></div>	
+</li>
+<li>
+<div class="thumb-content"><a href="#.">About</a></div>	
+</li>
+</ul>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="widget no-box">
+<h5 class="widget-title">Get Started<span></span></h5>
+<p>Unvail the gaming Experience with us.</p>
+<a class="btn" href="#." target="_blank">Search</a>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+
+<div class="widget no-box">
+<h5 class="widget-title">Contact Us<span></span></h5>
+
+<p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
+<ul class="social-footer2">
+<li class=""><a title="youtube" target="_blank" href="https://www.instagram.com/"><img alt="instagram" width="30" height="30" src="{% static 'icons/instagram.svg' %}"></a></li>
+<li class=""><a title="instagram" target="_blank" href="https://www.facebook.com/"><img alt="facebook" width="30" height="30" src="{% static 'icons/facebook.svg' %}"></a></li>
+<li class=""><a title="youtube" target="_blank" href="https://www.youtube.com/"><img alt="youtube" width="30" height="30" src="{% static 'icons/youtube.svg' %}"></a></li>
+<li class=""><a title="instagram" target="_blank" href="https://www.instagram.com/"><img alt="twitter" width="30" height="30" src="{% static 'icons/twitter.svg' %}"></a></li>
+<li class=""><a title="youtube" target="_blank" href="https://www.linkedin.com/"><img alt="linkedin" width="30" height="30" src="{% static 'icons/linkedin.svg' %}"></a></li>
+<li class=""><a title="instagram" target="_blank" href="https://www.googleplus.com/"><img alt="googleplus" width="30" height="30" src="{% static 'icons/google-plus.svg' %}"></a></li>
+<li>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+  
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<p>Copyright B&B Multimedia © 2019. All rights reserved.</p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" async defer></script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+ <script>
+$(document).ready(function(){
+  $(".upcoming").css({"backgroundColor":"#ff8d1e","color":"white"});
+});
+</script>
+<script>
+ $(".upcoming").click(function(e){
+     
+         $("#upcoming_events_main").css("display","block");
+         $("#completed_events_main").css("display","none");
+         $(".completed").css({"backgroundColor":"","color":"#ff8d1e"});
+         $(".upcoming").css({"backgroundColor":"#ff8d1e","color":"white"});
+         
+ })
+     $(".completed").click(function(e){
+         $(".upcoming").css({"backgroundColor":"","color":"#ff8d1e"});
+         $(".completed").css({"backgroundColor":"#ff8d1e","color":"white"});
+         $("#upcoming_events_main").css("display","none");
+         $("#completed_events_main").css("display","block");
+     
+   
+    
+ });
+//  $(window).scroll(function() {
+//     if ($(window).scrollTop() >= 500) { // this refers to window
+//        $("nav").css("backgroundColor","white"); 
+//     }
+// });
+var activeNavItem = $('.nav-item');
+
+activeNavItem.click(function(){
+  activeNavItem.removeClass('active');
+  $(this).addClass('active');  
+});
+ </script>   
+ <script>
+ 
+
+ {% comment %} $(window).scroll(function() {
+  
+    if ($(window).scrollTop() >= 500) { 
+    
+       $("nav").css("backgroundColor","white"); 
+
+  
+    }
+    
+     else if ($(window).scrollTop() < 500) { 
+    
+       $("nav").css("backgroundColor","none"); 
+
+  
+    }
+}); {% endcomment %}
+
+
+ 
+
+
+
+    
+     
+
+ </script>
+
+</body>
+
+</html>

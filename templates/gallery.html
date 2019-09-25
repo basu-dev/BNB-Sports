@@ -1,0 +1,38 @@
+{% extends 'base.html' %}    
+{% load photo_tags %}
+{% block content %}
+<div class=gallerycontainer>
+<div class=gallery>
+	{% if images %}
+		{% for image in images %}
+			{% with image|split:'.' as strs %}
+				{% with strs|length as str_arr_len %}
+					{% with str_arr_len|add:'-1' as ext_idx %}
+						{% if strs|get_by_index:ext_idx == 'jpg' %}
+							<a href="/media/images/{{ image }}">
+								<img src="/media/images/{{ image }}" height=400 width=400 alt="{{ image }}">
+							</a>
+						{% endif %}
+					{% endwith %}
+				{% endwith %}
+			{% endwith %}
+			{% if forloop.counter|divisibleby:4 %}
+				<div class="clear"></div>
+			{% endif %}
+		{% endfor %}
+	{% else %}
+		<p>No image available.</p>
+	{% endif %}
+	</div>
+	</div>
+
+	{% endblock content %} 
+	{% block script %}
+	<script type='text/javascript'>
+		$(document).ready(function() {
+			$('.gallery ').simpleLightbox();
+		});
+	</script>
+	{% endblock script %}
+ 
+

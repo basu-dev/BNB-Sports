@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-white">
+<div class="title title-expanded">{{event.title|title}}</div>
+<p class=date>{{event.created_date}}</p>
+<p class=desc>{{event.description}}</p>
+</div>
+<main>
+ 
+{% for image in  event.images %}
+
+<div class="gallery">
+    
+
+      <a href="{{image.image.url}}" data-toggle="lightbox" data-gallery="example-gallery" data-type="image">
+							
+        <img class ="img img-fluid img-thumbnail img-responsive" src={{image.thumbnail.url}} height=400px width=100%>
+        </a>
+  </div>
+{% endfor %}
+</main>
+
+<div class="members">
+{%for images in event.images%}
+    <img src={{images.thumbnail.url}}>
+    {%endfor%}
+
+</div>
+
+{% endblock content %}
+{% block script %}
+{% endblock script %}

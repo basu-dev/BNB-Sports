@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row text-white">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<div class="titlemain ml-0">TEAM MEMBER PROFILE</div>
+</div>
+<div class="col-md-8"></div>
+</div>
+
+<div class="row text-white mb-4">
+<div class="col-md-2"></div>
+<div class="col-md-4">
+
+<br><br>
+
+<p>First Name : <span><b>{{person.first_name}} {{person.last_nane}}</b></span></p>
+{%if person.contact_no%}
+<p>Contact Number : <span><b>{{person.contact_no}}</b></span></p>
+{%endif%}
+{%if person.address%}
+<p>Address : <span><b>{{person.address}}</b></span></p>
+{%endif%}
+
+</div>
+<div class="col-md-4">
+<div style="border:2px solid white;border-radius:3px">
+<div class=image-fluid>
+<img src="{{person.image.url}}" height="100%" width="100%">
+</div>
+</div>
+</div>
+<div class="col-md-2"></div>
+
+</div>
+<br>
+<div class=row>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<p class="text-white">{{person.description}}{% lorem 5 %}</p>
+</div>
+<div class="col-md-2"></div>
+
+</div>
+
+
+{% endblock content %}

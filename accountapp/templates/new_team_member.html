@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="row text-white">
+<div class=col-md-3></div>
+<div class=col-md-6>
+<strong class="titlemain ml-2">Add Member Profile</strong>
+<form action="../add_member_profile/" method=post enctype="multipart/form-data">
+<label>First Name</label>
+<input type=text name=first_name required class=form-control>
+<label>Last Name</label>
+<input type=text name=last_name required class=form-control>
+<label>Position</label>
+<input type=text name=position required class=form-control>
+<label>Contact Number</label>
+<input type=Number name=contact_no required class=form-control>
+<label>Description</label>
+<textarea name=description class=form-control></textarea>
+<input type=file  name=image >
+{% csrf_token %}
+<button type=submit class="btn btn-primary btn-md form-control mt-2">Submit</button>
+</form>
+
+</div>
+<div class=col-md-3></div>
+{% endblock content %}

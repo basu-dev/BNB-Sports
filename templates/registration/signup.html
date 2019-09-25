@@ -1,0 +1,41 @@
+{%extends "base.html"%}
+
+{% block content %}
+<<div class='row'>
+        <div class='col-lg-2 col-md-1 mt-md-5'></div>
+        <div class='col-lg-8 col-md-10 '>
+                <h2 class='h2'>Connect to the world with Raven!!!</h2>
+            <form class='form' method='POST'>
+                {% if formerror.username_error %}
+                <div style='color:red;'>
+                    <p>{{formerror.username_error}}</p>
+                </div>
+                {%endif%}
+                <label for='username'>Choose a username</label>
+                <input type='text' value='{{newuser.username}}'' class='form-control {{username}}' name='username' required  id='username'>
+                {% if formerror.password_error %}
+                <div style='color:red;'>
+                    <p>{{formerror.password_error}}</p>
+                </div>
+                {%endif%}
+                <label for='password1'>Password</label>
+                <input type='password' value='{{newuser.password1}}'' class='form-control {{password}}' name='password1' required  id='password1'>
+                <label for='password2'>Password conform</label>
+                <input type='password' value='{{newuser.password2}}' class='form-control {{password}}' name='password2' required  id='password2'>
+                {% if formerror.name_error %}
+                <div style='color:red;'>
+                    <p>{{formerror.name_error}}</p>
+                </div>
+                {%endif%}
+                <label for='first_name'>First Name</label>
+                <input type='text' value='{{newuser.first_name}}'  class='form-control {{first_name}}' required name='first_name' id='first_name'>
+                <label for='last_name'>Last Name</label>
+                <input type='text' value='{{newuser.last_name}}' class='form-control {{name_name}}'  name='last_name' id='last_name'>
+                <br>
+                {%csrf_token%}
+                <button class='btn btn-primary btn-md form-control' type='submit'>Signup</button>
+            </form>
+        </div>
+        <div class='col-lg-2 col-md-1 '></div>
+    </div>
+{% endblock content %}

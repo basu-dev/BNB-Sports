@@ -1,0 +1,35 @@
+main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(25rem, 1fr)) [auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 1rem;
+  cursor: pointer;
+}
+
+main .card {
+  border-radius: 5px;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+}
+
+main .card:hover {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  border: 2px solid #42b2f3;
+}
+
+main .card .info {
+  padding: 1rem;
+}
+
+main .card img {
+  width: 100%;
+}
+
+main .card .desc {
+  color: black;
+}
+/*# sourceMappingURL=style.css.map */
