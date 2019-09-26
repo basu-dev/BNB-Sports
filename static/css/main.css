@@ -183,7 +183,7 @@ a:active {
     transform: translateY(-50%);
   }
   .profileimage{
-      width:30vw;
+      width:10vh;
       height:auto;
   }
 }
@@ -369,3 +369,18 @@ main div .card .desc {
   font-family: "Manjari";
 }
 
+
+.mynavv{
+  margin-left:30px;
+  padding:0;
+}
+.admin-div{
+  font-size:3rem;
+  font-weight:bold;
+  border: 1px solid white;
+  background-color:ghostwhite;
+}
+.admin-div:hover{
+  border-color: #ff8d1e;
+  color: #ff8d1e;
+}

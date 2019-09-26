@@ -1,7 +1,8 @@
 .carousel-item {
     width: 100vw;
+    min-height:80vh;
     max-height:100vh;
-    height:auto;
+    
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -36,6 +37,3 @@
     border-color: transparent;
     color: #fff !important;
   }
- nav{
-   margin:0;
- }

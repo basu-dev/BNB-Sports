@@ -11,4 +11,5 @@ urlpatterns = [
     path("signup/", views.signup, name="signup"),
     path("add_member_profile/", views.newTeamMember),
     path("team_profile/<int:id>/", views.team_profile),
+    
 ]
