@@ -34,7 +34,7 @@ class Postevent(models.Model):
 
 
 class Images(models.Model):
-    post = models.ForeignKey(Postevent, on_delete=models.CASCADE, default=None,related_name="images")
+    post = models.ForeignKey(Postevent, on_delete=models.CASCADE, default=None)
     image = models.ImageField(upload_to="images/", verbose_name="Image")
     thumbnail = models.ImageField(
         upload_to="thumbnail/",

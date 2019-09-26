@@ -73,7 +73,12 @@ def memberimage(request):
 
 
 def homePage(request):
-    about = About.objects.all().order_by("-id")[0   ]
+    try:
+        about = About.objects.all().order_by("-id")[0]
+    except:
+        about=About()
+        about.body="This is about page"
+        
     videos = models.Videos.objects.all().order_by("-id")[
             :3
         ]

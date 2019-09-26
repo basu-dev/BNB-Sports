@@ -120,85 +120,82 @@
 
 
 
-  
-<main id=upcoming_events_main>
+  <div id="upcoming_events_main">
+    <main>
 
-{% for event in  upcoming_events %}
-
-<div class=card>
-{%if user.is_authenticated%}
-  <a class="confirm-delete" href="{% url 'gallery:delete' id=event.id %}"><span class="fa fa-remove"></span></a>
-  {%endif%}
-    
-    <div class="info">
-    <div class='title'>{{event.title|title}}</div>
-   
-    <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i>{{event.created_date}}</p>
-    <p class="desc">{{event.description|truncatewords:10}}</p>
-    </div>
-<div class="contain embed-responsive embed-responsive-16by9">
-      {%for img in event.images%}
-        <img class ="img embed-responsive-item" src={{img.image.url}} height=500px width=100%>
-        {% endfor %}
-        <a href="{% url 'gallery:eventdetail' id=event.id %}">
-        <div class="middle">
-        <div class=text>View Event</div>
+      {% for event in  upcoming_events %}
+      
+      <div class=card>
+      {%if user.is_authenticated%}
+        <a class="confirm-delete" href="{% url 'gallery:delete' id=event.id %}"><span class="fa fa-remove"></span></a>
+        {%endif%}
+          
+          <div class="info">
+          <div class='title'>{{event.title|title}}</div>
+         
+          <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i>{{event.created_date}}</p>
+          <p class="desc">{{event.description|truncatewords:10}}</p>
+          </div>
+      <div class="contain embed-responsive embed-responsive-16by9">
+            {%for img in event.images%}
+              <img class ="img embed-responsive-item" src={{img.image.url}} height=500px width=100%>
+              {% endfor %}
+              <a href="{% url 'gallery:eventdetail' id=event.id %}">
+              <div class="middle">
+              <div class=text>View Event</div>
+              </div>
+              </a>
+      
         </div>
-        </a>
-
-  </div>
-  
-  </div>
-</div>
-
-{% endfor %}
-<div  id="Events">
-</main>
-{% if upcoming_enents%}
+        
+        </div>
+      
+      {% endfor %}
+      </main>
+{% if upcoming_events%}
 <form action="../upcoming_events/" type=get>
 <button class="btn btn-primary btn-sm" type=submit>See More</button>
 </form>
 {%endif%}
 </div>
+<div id="completed_events_main" style="display:none">
+  <main>
 
-<div id=completed_events_main style="display:none">
-<main>
-
-{% for event in  completed_events %}
-
-<div class=card>
-{%if user.is_authenticated%}
-  <a class="confirm-delete" href="{% url 'gallery:delete' id=event.id %}"><span class="fa fa-remove"></span></a>
-  {%endif%}
+    {% for event in  completed_events %}
     
-    <div class="info">
-    <div class='title'>{{event.title|title}}</div>
-   
-    <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i>{{event.created_date}}</p>
-    <p class="desc">{{event.description|truncatewords:10}}</p>
-    </div>
-<div class="contain embed-responsive embed-responsive-16by9">
-      {%for img in event.images%}
-        <img class ="img embed-responsive-item" src={{img.image.url}} height=500px width=100%>
-        {% endfor %}
-        <a href="{% url 'gallery:eventdetail' id=event.id %}">
-        <div class="middle">
-        <div class=text>View Event</div>
+    <div class=card>
+    {%if user.is_authenticated%}
+      <a class="confirm-delete" href="{% url 'gallery:delete' id=event.id %}"><span class="fa fa-remove"></span></a>
+      {%endif%}
+        
+        <div class="info">
+        <div class='title'>{{event.title|title}}</div>
+       
+        <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i>{{event.created_date}}</p>
+        <p class="desc">{{event.description|truncatewords:10}}</p>
         </div>
-        </a>
-
-  </div>
-  
-  </div>
-  {% endfor %}
+    <div class="contain embed-responsive embed-responsive-16by9">
+          {%for img in event.images%}
+            <img class ="img embed-responsive-item" src={{img.image.url}} height=500px width=100%>
+            {% endfor %}
+            <a href="{% url 'gallery:eventdetail' id=event.id %}">
+            <div class="middle">
+            <div class=text>View Event</div>
+            </div>
+            </a>
     
-  </main>
-  {%if completed_events%}
-  <form action="../completedevents/" type=get>
+      </div>
+      
+      </div>
+    
+    {% endfor %}
+    </main>
+{% if completed_events%}
+<form action="../completedevents/" type=get>
 <button class="btn btn-primary btn-sm" type=submit>See More</button>
 </form>
-{% endif%}
-  </div>
+{%endif%}
+</div>
 
 <br><br>
 <div class=abou>
@@ -382,10 +379,11 @@ $(document).ready(function(){
          
  })
      $(".completed").click(function(e){
+      $("#upcoming_events_main").css("display","none");
+         $("#completed_events_main").css("display","block");
          $(".upcoming").css({"backgroundColor":"","color":"#ff8d1e"});
          $(".completed").css({"backgroundColor":"#ff8d1e","color":"white"});
-         $("#upcoming_events_main").css("display","none");
-         $("#completed_events_main").css("display","block");
+         
      
    
     
