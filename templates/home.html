@@ -40,7 +40,7 @@
     <div class="carousel-inner" role="listbox">
     <nav class="navbar mynavv navbar-default navbar-expand-lg fixed-top mynav">
   <div class="container">
-    <a class="" href="#"><img src="/static/icons/B&Blogo.png" height=80 width=70> </a>
+    <a class="" href="#"><img src="/static/icons/B&Blogo.png" height=60> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon bg-white"></span>
         </button>
@@ -100,7 +100,7 @@
 
 <div class="about jumbotron" id=about >
 <strong class=titlemain>ABOUT</strong>
-<p >{% lorem 5 %}</p>
+<p >{{about.body}}</p>
 
 </div>
 
@@ -246,8 +246,8 @@
     <div class=card>
     <div class=contain>
     
-    <iframe width="100%%" height="500"
-    src="https://www.youtube.com/embed/{{video.url}}">
+    <iframe width="100%" height="450"
+    src="https://www.youtube.com/embed/{{video.url}}" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen">
     </iframe>
     </div> 
     
@@ -291,7 +291,7 @@
 <div class="widget subscribe no-box">
 <img src="{% static 'icons/B&Blogo.png'%}" height=150px width=150px/>
 <h5 class="widget-title">B & B Multimedia<span></span></h5>
-<p>About the company, little discription will goes here.. </p>
+<p> </p>
 </div>
 </div>
 

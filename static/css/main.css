@@ -375,10 +375,11 @@ main div .card .desc {
   padding:0;
 }
 .admin-div{
-  font-size:3rem;
-  font-weight:bold;
+  color:black;
+  font-size:1rem;
+  
   border: 1px solid white;
-  background-color:ghostwhite;
+
 }
 .admin-div:hover{
   border-color: #ff8d1e;

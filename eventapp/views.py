@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
 from django.forms import modelformset_factory
 from django.core.files.storage import FileSystemStorage
-
-
-
+from accountapp.models import About
 from django.http import Http404, JsonResponse
 
 from django.contrib import messages
@@ -20,11 +18,10 @@ from django.templatetags.static import static
 from django.views import generic
 
 # Create your views here.
+
 def index(request):
-    path = settings.MEDIA_ROOT
-    img_list = os.listdir(path + "/images")
-    context = {"images": img_list}
-    return render(request, "gallery.html", context)
+    events = models.Postevent.objects.order_by("-created_date")
+    return render(request, "gallery.html", {"events": events})
 
 
 @login_required
@@ -51,7 +48,7 @@ def post(request):
                     photo = models.Images(post=post_form, image=image)
                     photo.save()
             messages.success(request, "Go to homepage to see changes")
-            return HttpResponseRedirect("/eventapp/add_members/" + id)
+            return redirect("/admin_page/")
         else:
             print(postForm.errors, formset.errors)
     else:
@@ -60,29 +57,6 @@ def post(request):
     return render(
         request, "gallery/eventbase.html", {"postForm": postForm, "formset": formset}
     )
-
-
-# @login_required
-# def memberpost(request):
-#     if request.method == "POST":
-#         member = Members
-#         firstname = request.POST["first_name"]
-#         lastname = request.POST["last_name"]
-#         position = request.POST["position"]
-
-#         if firstname:
-#             member.first_name = firstname
-#         if lastname:
-#             member.last_name = lastname
-#         if position:
-#             member.position = position
-
-#         image = request.FILES("photo")
-#         if image:
-#             member.photo = image
-#         fss = FileSystemStorage()
-#         fss.save("members/" + image.name, image)
-#         return redirect()
 
 
 def memberimage(request):
@@ -99,6 +73,7 @@ def memberimage(request):
 
 
 def homePage(request):
+    about = About.objects.all().order_by("-id")[0   ]
     videos = models.Videos.objects.all().order_by("-id")[
             :3
         ]
@@ -132,7 +107,8 @@ def homePage(request):
             "team": people,
             "upcoming_events": upcoming_events,
             "completed_events": completed_events,
-            "videos":videos
+            "videos":videos,
+            "about":about
         },
     )
 

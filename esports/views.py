@@ -11,11 +11,20 @@ def about(request):
     if request.method=='POST':
         body=request.POST["about"]
         if(body):
-            old_about=About.objects.get()[0]
+            try:
+                
+                about=About.objects.all().order_by("-id")[0]
+                about.delete()
+                about=About()
+                about.body=body
+                about.save()
+                return redirect("/admin_page")
 
-            old_about.body=body
-            old_about.save()
-            return redirect("/admin_page")
+            except:
+                about=About()
+                about.body=body
+                about.save()
+                return redirect("/admin_page")
     else:
         return redirect("/#about")
     

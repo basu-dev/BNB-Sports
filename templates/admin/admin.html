@@ -1,6 +1,19 @@
 {%extends 'base.html'%}
 {%block content%}
 {%if user.is_authenticated%}
+<style>
+.admin-div{
+    color:black;
+    font-size:1rem;
+    
+    border: 1px solid white;
+  
+  }
+  .admin-div:hover{
+    border-color: #ff8d1e;
+    color: #ff8d1e;
+  }
+  </style>
 <div class=row>
     <div class="col-md-3"></div>
     <div class="col-md-6">
@@ -27,14 +40,11 @@
             <li>
                 <a href="/upcoming_events/">  <div class="admin-div">Delete Events</div></a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="/#team"> <div class="admin-div">Remove Member</div></a>
-            </li>
+            </li> -->
             <li>
                 <a href="/#videos"> <div class="admin-div">Add Videos</div></a>
-            </li>
-            <li>
-                <a href="/post/">  <div class="admin-div">Add </div></a>
             </li>
         </ul>
     </div>
