@@ -8,194 +8,208 @@
 <!--<![endif]-->
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=.9, maximum-width:1  ">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <!-- Optional theme -->
-    
 
-    <!-- Latest compiled and minified JavaScript -->
-    
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
 
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/ekko-lightbox.css' %}">
-    <link rel="stylesheet" href="{% static 'css/imageupload.css' %}">
-    {% block style %}
-    
-    {% endblock style %}
-    {% comment %} <link rel="stylesheet" href="{% static 'css/gallery.css' %}"> {% endcomment %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Manjari|Rubik+Mono+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Rajdhani:700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/ekko-lightbox.css' %}">
+  <link rel="stylesheet" href="{% static 'css/imageupload.css' %}">
+  {% block style %}
+
+  {% endblock style %}
+  {% comment %}
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}"> {% endcomment %}
+
+  <link href="https://fonts.googleapis.com/css?family=Manjari|Rubik+Mono+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Rajdhani:700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <nav class="navbar mynavv navbar-default navbar-expand-lg fixed-top">
-          <div class="container">
-            <a class="navlogo" href="/ "><img src="/static/icons/B&Blogo.png" height=50   w> </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link " href="/">Home</a>
-                </li>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="/upcoming_events/">Events</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/#team">Team</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Gallery
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="/gallery/">Photos</a>
-                    <a class="dropdown-item" href="/videos/">Videos</a>
-                    {%if user.is_authenticated%}
-                    <a class="dropdown-item" href="/acounts/logout/">Logout</a>
-                    {%endif%}
-                  </div>
-                </li>
-              </ul>
-            </div>
-            </div>
-        </nav>
 
-<br><br><br>
+  <nav class="navbar mynavv navbar-default navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navlog" href="/ "><img src="/static/icons/B&Blogo.png" height=50 > </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class=""><img src="/static/icons/menu.svg/ " height=40></span>
 
-    <div class="contai mycontent mt-2">       
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/upcoming_events/">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/#team">Team</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Gallery
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/gallery/">Photos</a>
+              <a class="dropdown-item" href="/videos/">Videos</a>
+              {%if user.is_authenticated%}
+              <a class="dropdown-item" href="/acountapp/logout/">Logout</a>
+              {%endif%}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <br><br><br>
+
+  <div class="contai mycontent mt-2">
     {% block content %}
 
     {% endblock content %}
+  </div>
+  <br><br>
+
+  <footer id="footer" class="footer-1">
+    <div class="main-footer widgets-dark typo-light">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget subscribe no-box">
+              <img src="{% static 'icons/B&Blogo.png'%}" height=150px width=150px />
+              <h5 class="widget-title">B & B Multimedia<span></span></h5>
+              <p>About the company, little discription will goes here.. </p>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget no-box">
+              <h5 class="widget-title">Quick Links<span></span></h5>
+              <ul class="thumbnail-widget">
+                <li>
+                  <div class="thumb-content"><a href="#.">Events</a></div>
+                </li>
+                <li>
+                  <div class="thumb-content"><a href="#.">Gallery</a></div>
+                </li>
+                <li>
+                  <div class="thumb-content"><a href="#.">Event/Tickets</a></div>
+                </li>
+                <li>
+                  <div class="thumb-content"><a href="#.">News</a></div>
+                </li>
+                <li>
+                  <div class="thumb-content"><a href="#.">Contact</a></div>
+                </li>
+                <li>
+                  <div class="thumb-content"><a href="#.">About</a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget no-box">
+              <h5 class="widget-title">Get Started<span></span></h5>
+              <p>Unvail the gaming Experience with us.</p>
+              <a class="btn" href="#." target="_blank">Search</a>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+
+            <div class="widget no-box">
+              <h5 class="widget-title">Contact Us<span></span></h5>
+
+              <p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
+              <ul class="social-footer2">
+                <li class=""><a title="youtube" target="_blank" href="https://www.instagram.com/"><img alt="instagram"
+                      width="30" height="30" src="{% static 'icons/instagram.svg' %}"></a></li>
+                <li class=""><a title="instagram" target="_blank" href="https://www.facebook.com/"><img alt="facebook"
+                      width="30" height="30" src="{% static 'icons/facebook.svg' %}"></a></li>
+                <li class=""><a title="youtube" target="_blank" href="https://www.youtube.com/"><img alt="youtube"
+                      width="30" height="30" src="{% static 'icons/youtube.svg' %}"></a></li>
+                <li class=""><a title="instagram" target="_blank" href="https://www.instagram.com/"><img alt="twitter"
+                      width="30" height="30" src="{% static 'icons/twitter.svg' %}"></a></li>
+                <li class=""><a title="youtube" target="_blank" href="https://www.linkedin.com/"><img alt="linkedin"
+                      width="30" height="30" src="{% static 'icons/linkedin.svg' %}"></a></li>
+                <li class=""><a title="instagram" target="_blank" href="https://www.googleplus.com/"><img
+                      alt="googleplus" width="30" height="30" src="{% static 'icons/google-plus.svg' %}"></a></li>
+                <li>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
-    <br><br>
-    
-<footer id="footer" class="footer-1">
-<div class="main-footer widgets-dark typo-light">
-<div class="container">
-<div class="row">
-  
-<div class="col-xs-12 col-sm-6 col-md-3">
-<div class="widget subscribe no-box">
-<img src="{% static 'icons/B&Blogo.png'%}" height=150px width=150px/>
-<h5 class="widget-title">B & B Multimedia<span></span></h5>
-<p>About the company, little discription will goes here.. </p>
-</div>
-</div>
 
-<div class="col-xs-12 col-sm-6 col-md-3">
-<div class="widget no-box">
-<h5 class="widget-title">Quick Links<span></span></h5>
-<ul class="thumbnail-widget">
-<li>
-<div class="thumb-content"><a href="#.">Events</a></div>	
-</li>
-<li>
-<div class="thumb-content"><a href="#.">Gallery</a></div>	
-</li>
-<li>
-<div class="thumb-content"><a href="#.">Event/Tickets</a></div>	
-</li>
-<li>
-<div class="thumb-content"><a href="#.">News</a></div>	
-</li>
-<li>
-<div class="thumb-content"><a href="#.">Contact</a></div>	
-</li>
-<li>
-<div class="thumb-content"><a href="#.">About</a></div>	
-</li>
-</ul>
-</div>
-</div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>Copyright B&B Multimedia © 2019. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}" async defer></script>
+  <script type="text/javascript" src="{% static 'js/ekko-lightbox.js' %}"></script>
+  <script>
+    {
+      % block script %
+    }
 
-<div class="col-xs-12 col-sm-6 col-md-3">
-<div class="widget no-box">
-<h5 class="widget-title">Get Started<span></span></h5>
-<p>Unvail the gaming Experience with us.</p>
-<a class="btn" href="#." target="_blank">Search</a>
-</div>
-</div>
+    {
+      % endblock script %
+    }
+  </script>
 
-<div class="col-xs-12 col-sm-6 col-md-3">
 
-<div class="widget no-box">
-<h5 class="widget-title">Contact Us<span></span></h5>
-
-<p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
-<ul class="social-footer2">
-<li class=""><a title="youtube" target="_blank" href="https://www.instagram.com/"><img alt="instagram" width="30" height="30" src="{% static 'icons/instagram.svg' %}"></a></li>
-<li class=""><a title="instagram" target="_blank" href="https://www.facebook.com/"><img alt="facebook" width="30" height="30" src="{% static 'icons/facebook.svg' %}"></a></li>
-<li class=""><a title="youtube" target="_blank" href="https://www.youtube.com/"><img alt="youtube" width="30" height="30" src="{% static 'icons/youtube.svg' %}"></a></li>
-<li class=""><a title="instagram" target="_blank" href="https://www.instagram.com/"><img alt="twitter" width="30" height="30" src="{% static 'icons/twitter.svg' %}"></a></li>
-<li class=""><a title="youtube" target="_blank" href="https://www.linkedin.com/"><img alt="linkedin" width="30" height="30" src="{% static 'icons/linkedin.svg' %}"></a></li>
-<li class=""><a title="instagram" target="_blank" href="https://www.googleplus.com/"><img alt="googleplus" width="30" height="30" src="{% static 'icons/google-plus.svg' %}"></a></li>
-<li>
-</li>
-</ul>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-  
-<div class="footer-copyright">
-<div class="container">
-<div class="row">
-<div class="col-md-12 text-center">
-<p>Copyright B&B Multimedia © 2019. All rights reserved.</p>
-</div>
-</div>
-</div>
-</div>
-</footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}" async defer></script>
-    <script type="text/javascript" src="{% static 'js/ekko-lightbox.js' %}"></script>
-    <script>
-    {% block script %}
-
-    {% endblock script %}
-    </script>
-
-    
-<script>
-    $( document ).ready(function() {
-$(document).on('click', '[data-toggle="lightbox"]', function(event) {
-    event.preventDefault();
-    $(this).ekkoLightbox();
-});
-});
-</script>
-    <script>
-$(document).ready(function() {
-    $(document).on('click', '.nav-item a', function (e) {
-        $(this).parent().addClass('active').siblings().removeClass('active');
+  <script>
+    $(document).ready(function () {
+      $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+      });
     });
-});
-    </script>
+  </script>
+  <script>
+    $(document).ready(function () {
+      $(document).on('click', '.nav-item a', function (e) {
+        $(this).parent().addClass('active').siblings().removeClass('active');
+      });
+    });
+  </script>
 </body>
 
 </html>

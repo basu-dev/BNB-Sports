@@ -21,6 +21,11 @@ from django.views import generic
 
 def index(request):
     events = models.Postevent.objects.order_by("-created_date")
+    images=[]
+    for event in events:
+        event.images=models.Images.objects.all().order_by("-id")
+    
+      
     return render(request, "gallery.html", {"events": events})
 
 

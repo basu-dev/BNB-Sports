@@ -1,42 +1,4 @@
-.carousel-item {
-    width: 100vw;
-    min-height:80vh;
-    max-height:100vh;
-    
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-      margin-top:0px;
-  }
-      .navbar {
-        
-    margin-bottom: 0;
-    background-color: #f4511e;
-    z-index: 9999;
-    border: 0;
-    font-size: 12px !important;
-    line-height: 1.42857143 !important;
-    letter-spacing: 4px;
-    border-radius: 0;
-    margin:0;
-  }
-  
-  .navbar li a, .navbar .navbar-brand {
-    
-    color: #fff !important;
-  }
-  
-  .navbar-nav li a:hover, .navbar-nav li.active a{
-    color: #f4511e !important;
-    background-color: #fff !important;
-  }
-  
-  .navbar-default .navbar-toggle {
-    border-color: transparent;
-    color: #fff !important;
-  }
+
   .carousel-item {
     height: 100vh;
     min-height: 350px;

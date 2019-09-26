@@ -4,7 +4,7 @@
 {% for event in  events%}
 {% for eventimage in event.images.all %}
 
-<div class="imagecontain" style="height:auto " >
+<div class="imagecontain" style="height:auto; " >
     
 
       <a href="{{eventimage.image.url}}" data-toggle="lightbox" data-gallery="example-gallery" data-type="image" data-title={{event.title}} >

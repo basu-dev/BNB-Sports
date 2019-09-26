@@ -3,10 +3,18 @@
 }
 body,
 html {
+  overflow-x:hidden;
   height: 100%;
+  width:100%;
+  margin:0;
+  padding:0;
 }
 
 body {
+  margin:0;
+  padding:0;
+  position:relative;
+  overflow-x:hidden;
   margin: 0;
   font-family: "Montserrat";
   background: radial-gradient(50% 50% at 50% 50%, #2b3780 0%, #0b1023 100%);
@@ -116,7 +124,7 @@ h1 {
   opacity: 1;
 }
 .title {
-  font-size: 30px;
+  font-size: 15px;
   font-family: "Rubik Mono One", sans-serif;
   color: black;
 }
@@ -223,7 +231,7 @@ a:active {
 .containerimage {
   position: absolute;
   margin: 20px;
-  width: 100vw;
+  width: 100%;
 }
 
 /* The navbar */
@@ -257,7 +265,7 @@ a:active {
 }
 .swiper-slide img {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: relative;
 }
 .imagewrapper {
@@ -282,7 +290,7 @@ button .read-more {
   margin-right: 5rem;
 }
 .close-clients {
-  height: 15rem;
+  height: auto;
   background-color: rgb(255, 141, 30);
 }
 .titlemain {
@@ -372,7 +380,8 @@ main div .card .desc {
 
 .mynavv{
   margin-left:30px;
-  padding:0;
+  padding:3px;
+  padding-left: 5px;
 }
 .admin-div{
   color:black;
@@ -386,3 +395,6 @@ main div .card .desc {
   color: #ff8d1e;
 }
 
+ul li a{
+  font-size:1rem;
+}
