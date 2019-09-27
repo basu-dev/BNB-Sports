@@ -13,6 +13,7 @@ class Postevent(models.Model):
     slug = models.SlugField(unique=True, default="aewrf")
     title = models.CharField(max_length=200)
     description = models.TextField()
+    event_date = models.DateTimeField(null=True)
     created_date = models.DateTimeField(default=timezone.now)
     completed = models.BooleanField(default=False)
 
@@ -20,6 +21,12 @@ class Postevent(models.Model):
         title = instance.post.title
         slug = slugify(title)
         return "post_images/%s-%s" % (filename)
+
+    def completed_event(self):
+        if self.event_date <= timezone.now():
+            self.completed == True
+        else:
+            self.completed == False
 
     @property
     def short_description(self):
@@ -59,13 +66,19 @@ class People(models.Model):
     position = models.CharField(max_length=20, blank=True, null=True)
     description = models.TextField(blank=True)
     contact_no = models.IntegerField(10, blank=True, null=True)
-    image = models.ImageField(upload_to="people/", null=True, default="people/default/profile_picture.jpg/")
+    image = models.ImageField(
+        upload_to="people/", null=True, default="people/default/profile_picture.jpg/"
+    )
 
 
 class Members(models.Model):
     person = models.ForeignKey(People, on_delete=models.CASCADE)
     event = models.ForeignKey(Postevent, on_delete=models.CASCADE)
+
+
 class Videos(models.Model):
-    post = models.ForeignKey(Postevent, on_delete=models.CASCADE, default=None,null=True)
-    title=models.CharField(max_length=50)
-    url=models.TextField()
+    post = models.ForeignKey(
+        Postevent, on_delete=models.CASCADE, default=None, null=True
+    )
+    title = models.CharField(max_length=50)
+    url = models.TextField()

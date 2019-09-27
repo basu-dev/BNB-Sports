@@ -1,14 +1,18 @@
 from django import forms
 from .models import Postevent, Images, People
+from .widgets import BootstrapDateTimePickerInput
 
 
 class PostForm(forms.ModelForm):
     title = forms.CharField(max_length=128)
     description = forms.Textarea()
+    event_date = forms.DateTimeField(
+        input_formats=["%d/%m/%Y %H:%M"], widget=BootstrapDateTimePickerInput()
+    )
 
     class Meta:
         model = Postevent
-        fields = ("title", "description")
+        fields = ("title", "event_date", "description")
 
 
 class ImageForm(forms.ModelForm):
