@@ -112,11 +112,31 @@ h1 {
   font-family: "Manjari";
   font-weight: bold;
 }
-.middle:hover .text {
-  background-color: #9698a186;
-  cursor: pointer;
+.texta {
+  background-color: rgba(216, 224, 226, 0.7);
+  border: 1px solid white;
+  border-radius: 30px;
+  color: white;
+  font-size: 1.4em;
+  padding: 10px 20px;
+  text-align: center;
+  align-content: center;
+  font-family: "Manjari";
+  font-weight: bold;
+}
+.text :hover{
+  cursor:pointer;
+  border-color:burlywood;
 }
 
+.middle:hover .text {
+  background-color: #9698a186;
+  
+}
+.texta :hover{
+  background-color:rgb(255, 153, 0);
+  cursor:pointer;
+ }
 .contain:hover .img {
   opacity: 0.6;
 }
@@ -147,7 +167,7 @@ a:active {
   height: 200px;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+
 @media only screen and (max-width: 600px) {
   .btn-group {
     margin: 0;
@@ -379,7 +399,6 @@ main div .card .desc {
 
 
 .mynavv{
-  margin-left:30px;
   padding:3px;
   padding-left: 5px;
 }

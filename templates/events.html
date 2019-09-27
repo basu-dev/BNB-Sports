@@ -45,9 +45,13 @@
 <div class=col-md-4></div>
 <div class=col-md-4>
 {%if more%}
-<a href="/more_events/{{completed}}/{{smallest_id}}/">
-<button class="btn btn-md form-control mt-2">See More<button>
-</a>
+
+  <form action="/more_events/{{completed}}/{{smallest_id}}/" method=get>
+    <button class="btn btn-md form-control mt-2">See More<button>
+    
+  </form>
+
+
 {%endif%}
 </div>
 <div class=col-md-4></div>

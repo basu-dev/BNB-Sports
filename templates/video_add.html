@@ -1,0 +1,25 @@
+{%extends "base.html"%}
+{%block content%}
+<div class=row>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+            {%if user.is_authenticated%}
+            <div class="card" style="background-color:gray">
+              <div class="">Add Video</div>
+              <div class="contain" style="top:30%">
+        
+                <form action="/videos/" method="POST">
+                  <div>Video Title</div>
+                  <input type=text name="video_title" class="form-control" placeholder="Video Title" required>
+                  <div>Video Url</div>
+                  <input type=text name="video_url" class="form-control" placeholder="Youtube Video Link (Url)" required>
+                  {%csrf_token%}
+                  <button class="form-control btn btn-md" type=submit>Add</button>
+                </form>
+              </div>
+            </div>
+            {%endif%}
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{%endblock%}

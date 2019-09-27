@@ -66,5 +66,6 @@ class Members(models.Model):
     person = models.ForeignKey(People, on_delete=models.CASCADE)
     event = models.ForeignKey(Postevent, on_delete=models.CASCADE)
 class Videos(models.Model):
+    post = models.ForeignKey(Postevent, on_delete=models.CASCADE, default=None,null=True)
     title=models.CharField(max_length=50)
     url=models.TextField()

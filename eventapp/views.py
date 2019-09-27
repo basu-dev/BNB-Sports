@@ -17,8 +17,62 @@ from django.conf import settings
 from django.templatetags.static import static
 from django.views import generic
 
-# Create your views here.
+def edit_event(request,id):
+    if request.method=='POST':
+        date=request.POST["date"]
+        title=request.POST["title"]
+        description=request.POST["description"]
+        try:
+            completed_false=request.POST["completed_false"]
+        except:
+            completed_true=request.POST["completed_true"]
+        try:
+            event=models.Postevent.objects.get(id=id)
+        except:
+            return redirect("/")
+        
+        if(title):
+            event.title=title
+        if(date):
+            event.date=date
+        if(description):
+            event.description=description
+        if(event.completed):
+            if(completed_true == "on"):
+                event.completed=True
+            else:
+                event.completed=False
+        else:
+            if(completed_false =="on"):
+                event.completed=True
+            else:
+                event.completed=False
+        
+        event.save()
+        return redirect("/")
+    elif request.method=='GET':
+        try:
+            event=event=models.Postevent.objects.get(id=id)
+        except:
+            return redirect("/")
 
+        return render(request,"edit_event.html",{"event":event})
+def add_video(request,id):
+    if request.method=='POST':
+        post=mdoels.Postevent.objects.get(id=id)
+        title=request.POST["video_title"]
+        url=request.POST["video_url"]
+        if (title and url):
+            video=Videos()
+            video.title=title
+            video.url=url
+            video.save()
+            return redirect("/admin_page")
+    
+    elif request.method=='GET':
+        return render(request,"video_add.html",{"id":id})
+    return redirect("/")
+        
 def index(request):
     events = models.Postevent.objects.order_by("-created_date")
     images=[]
@@ -78,15 +132,16 @@ def memberimage(request):
 
 
 def homePage(request):
+    videos = models.Videos.objects.all().order_by("-id")[
+            :3
+        ]
     try:
         about = About.objects.all().order_by("-id")[0]
     except:
         about=About()
         about.body="This is about page"
-        
-    videos = models.Videos.objects.all().order_by("-id")[
-            :3
-        ]
+     
+    
     people = People.objects.all()
     upcoming_events = models.Postevent.objects.filter(completed=False).order_by(
         "-created_date"

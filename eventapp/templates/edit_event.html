@@ -1,0 +1,33 @@
+{%extends "base.html"%}
+{%block content%}
+<div class=row>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+            {%if user.is_authenticated%}
+            <div class="card" style="background-color:gray">
+              <div class="">Edit Event</div>
+              <div class="contain" style="top:30%">
+        
+                <form action="/edit_event/{{event.id}}" method="POST">
+                  <div> Title</div>
+                  <input type=text name="title" class="form-control" value={{event.title}} required>
+                  <div>Date</div>
+                  
+                  <input type=text name="date" class="form-control" value={{event.date}} required>
+                  <div>Description</div>
+                  <textarea type=text name="description" class="form-control"  required>{{event.description}}</textarea>
+                  {%if event.completed%}
+                <input type=checkbox name="completed_true" class=form-control checked=True>
+                {%else%}
+                <input type=checkbox name="completed_false" class=form-control>
+                {%endif%}
+                  {%csrf_token%}
+                  <button class="form-control btn btn-md" type=submit>Submit</button>
+                </form>
+              </div>
+            </div>
+            {%endif%}
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{%endblock%}

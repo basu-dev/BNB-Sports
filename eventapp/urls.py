@@ -16,5 +16,9 @@ urlpatterns = [
     path("postimage/", views.memberimage),
     path("more_events/<str:c>/<int:id>/", views.more_events),
     path("videos/",views.videos),
+    path("add_video/<int:id>",views.add_video),
+    path("edit_event/<int:id>",views.edit_event),
+    # path("delete_photo/<int:id",views.delete_photo),
+    # path("delete_video/<int:id>",views.delete_photo),
 ]
 

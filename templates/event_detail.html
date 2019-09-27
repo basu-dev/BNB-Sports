@@ -8,24 +8,26 @@
 <main>
  
 {% for image in  event.images %}
+<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 profilecontainer">
+    <div class="imagecontain ">
+        <a href="{{image.image.url}}" data-toggle="lightbox" data-gallery="example-gallery" data-type="image">
+      <img class="img" src={{image.thumbnail.url}} style="height:100%;width:100%;object-fit:cover">
+    </a>
+      
+        
+    </div>
 
-<div class="gallery">
+  </div>
+
     
 
       <a href="{{image.image.url}}" data-toggle="lightbox" data-gallery="example-gallery" data-type="image">
 							
         <img class ="img img-fluid img-thumbnail img-responsive" src={{image.thumbnail.url}} height=400px width=100%>
         </a>
-  </div>
+
 {% endfor %}
-</main>
 
-<div class="members">
-{%for images in event.images%}
-    <img src={{images.thumbnail.url}}>
-    {%endfor%}
-
-</div>
 
 {% endblock content %}
 {% block script %}
