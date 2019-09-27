@@ -18,7 +18,7 @@ urlpatterns = [
     path("videos/",views.videos),
     path("add_video/<int:id>",views.add_video),
     path("edit_event/<int:id>",views.edit_event),
-    # path("delete_photo/<int:id",views.delete_photo),
-    # path("delete_video/<int:id>",views.delete_photo),
+    path("delete_image/<int:id>",views.delete_photo),
+    path("delete_video/<int:id>",views.delete_video),
 ]
 

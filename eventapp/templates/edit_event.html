@@ -16,11 +16,10 @@
                   <input type=text name="date" class="form-control" value={{event.date}} required>
                   <div>Description</div>
                   <textarea type=text name="description" class="form-control"  required>{{event.description}}</textarea>
-                  {%if event.completed%}
-                <input type=checkbox name="completed_true" class=form-control checked=True>
-                {%else%}
-                <input type=checkbox name="completed_false" class=form-control>
-                {%endif%}
+                
+                <input type=checkbox name="completed" class=form-control checked="{{event.checked}}">
+               
+                
                   {%csrf_token%}
                   <button class="form-control btn btn-md" type=submit>Submit</button>
                 </form>
