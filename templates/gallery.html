@@ -5,15 +5,22 @@
 {% for eventimage in event.images.all %}
 
 <div class="imagecontain" style="height:auto; " >
-    
+  
 
       <a href="{{eventimage.image.url}}" data-toggle="lightbox" data-gallery="example-gallery" data-type="image" data-title={{event.title}} >
-   
+        
 							
-        <img class ="img-thumbnail" src={{eventimage.thumbnail.url}}   style="height:100%;width:100%;object-fit:cover >
+        <img class ="img-thumbnai" src={{eventimage.thumbnail.url}}   style="height:100%;width:100%;object-fit:cover" >
         </a>
+        <form method=post action= /delete_image/{{eventimage.id}}>
+          {%csrf_token%}
+          <input type="hidden" name='url' value="/gallery">
+        <span ><button type=submit class="fa fa-remove cofirm-delete bg-light"></button></span>
+         </form> 
+       
   </div>
   {% endfor %}
 {% endfor %}
 </main>
+<br><br><br>
 {% endblock content %}

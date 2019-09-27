@@ -19,55 +19,47 @@ from django.views import generic
 
 def edit_event(request,id):
     if request.method=='POST':
-        date=request.POST["date"]
-        title=request.POST["title"]
-        description=request.POST["description"]
-        try:
-            completed_false=request.POST["completed_false"]
-        except:
-            completed_true=request.POST["completed_true"]
-        try:
-            event=models.Postevent.objects.get(id=id)
-        except:
+        if request.user.is_authenticated:
+            date=request.POST["date"]
+            title=request.POST["title"]
+            description=request.POST["description"]
+            event=Postevent.objects.get(id=id)
+            try:
+                completed=request.POST["completed"]
+                event.completed=True
+            except:
+                event.completed=False
+            if(title):
+                event.title=title
+            if(date):
+                event.date=date
+            if(description):
+                event.description=description
+            event.save()
             return redirect("/")
-        
-        if(title):
-            event.title=title
-        if(date):
-            event.date=date
-        if(description):
-            event.description=description
-        if(event.completed):
-            if(completed_true == "on"):
-                event.completed=True
-            else:
-                event.completed=False
-        else:
-            if(completed_false =="on"):
-                event.completed=True
-            else:
-                event.completed=False
-        
-        event.save()
-        return redirect("/")
     elif request.method=='GET':
         try:
             event=event=models.Postevent.objects.get(id=id)
+            if(event.completed):
+                event.checked="checked"
+            else:
+                event.checked="unchecked"
         except:
             return redirect("/")
 
         return render(request,"edit_event.html",{"event":event})
 def add_video(request,id):
     if request.method=='POST':
-        post=mdoels.Postevent.objects.get(id=id)
-        title=request.POST["video_title"]
-        url=request.POST["video_url"]
-        if (title and url):
-            video=Videos()
-            video.title=title
-            video.url=url
-            video.save()
-            return redirect("/admin_page")
+        if request.user.is_authenticated:
+            post=models.Postevent.objects.get(id=id)
+            title=request.POST["video_title"]
+            url=request.POST["video_url"]
+            if (title and url):
+                video=Videos()
+                video.title=title
+                video.url=url
+                video.save()
+                return redirect("/admin_page")
     
     elif request.method=='GET':
         return render(request,"video_add.html",{"id":id})
@@ -178,17 +170,15 @@ def homePage(request):
     )
 
 
-def showGallery(request):
-    posts = models.Postevent.objects.filter().order_by("-created_date")
-    for i in posts:
-        i.images = models.Images.objects.filter(post=i)[:2]
-    return render(request, "footer.html", {"posts": posts})
 
 
 def event_detail(request, id):
-    eventdetail = models.Postevent.objects.get(id=id)
-    eventdetail.images = models.Images.objects.filter(post=eventdetail)
+    try:
+        eventdetail = models.Postevent.objects.get(id=id)
 
+        eventdetail.images = models.Images.objects.filter(post=eventdetail)
+    except:
+        eventdetail=[]
     return render(request, "event_detail.html", {"event": eventdetail})
 
 
@@ -336,24 +326,26 @@ def videos(request):
             "videos.html",
             {"videos": videos, "smallest_id": smallest_id, "more": more}
         )
+    
     elif request.method=="POST":
-        title=request.POST["video_title"]
-        url=request.POST["video_url"]
-        video=models.Videos()
-        if(title):
-            video.title=title
-            if(url):
-                link_id=[]
-                index=0
-                for i in url:
-                    index+=1
-                    if (i == '='):
-                        link_id=url[index:len(url)]
-                        video.url=link_id
-                        video.save()
-                        break
-                        
-                return redirect("/")
+        if request.user.is_authenticated:
+            title=request.POST["video_title"]
+            url=request.POST["video_url"]
+            video=models.Videos()
+            if(title):
+                video.title=title
+                if(url):
+                    link_id=[]
+                    index=0
+                    for i in url:
+                        index+=1
+                        if (i == '='):
+                            link_id=url[index:len(url)]
+                            video.url=link_id
+                            video.save()
+                            break
+                            
+                    return redirect("/")
                     
                 
         else:
@@ -405,4 +397,30 @@ def add_member(request, pid, mid):
                 return redirect("/")
         except:
             return redirect("/")
+@login_required
+def delete_photo(request,id):
+    if request.method=="POST":
+        url=request.POST["url"]
+        if request.user.is_authenticated:
+            try:
+                photo=Images.objects.get(id=id)
+                
+                photo.delete()
+                
+                return redirect(url)
+            except:
+                
+                return redirect(url)
+    return redirect("/")
+def delete_video(request,id):
+    if request.method=="POST":
+        url=request.POST["url"]
+        if request.user.is_authenticated:
+            try:
+                photo=Videos.objects.get(id=id)
+                photo.delete()
+                return redirect(url)
+            except:
+                return redirect(url)
+    return redirect("/")
 
