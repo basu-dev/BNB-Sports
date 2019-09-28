@@ -23,30 +23,32 @@ def newTeamMember(request):
         return render(request, "new_team_member.html")
 
     if request.method == "POST":
-        first_name = request.POST["first_name"]
-        last_name = request.POST["last_name"]
-        position = request.POST["position"]
+        if request.user.is_authenticated:
+            first_name = request.POST["first_name"]
+            last_name = request.POST["last_name"]
+            position = request.POST["position"]
+            url=request.POST["url"]
 
-        description = request.POST["description"]
-        contact_no = request.POST["contact_no"]
-        if request.FILES:
-            image = request.FILES["image"]
+            description = request.POST["description"]
+            contact_no = request.POST["contact_no"]
+            if request.FILES:
+                image = request.FILES["image"]
+            else:
+                image = False
+            person = People()
+            person.first_name = first_name
+            person.last_name = last_name
+            person.position = position
+            if contact_no:
+                person.contact_no = contact_no
+            if description:
+                person.description = description
+            if image:
+                person.image = image
+            person.save()
+            return redirect(url)
         else:
-            image = False
-        person = People()
-        person.first_name = first_name
-        person.last_name = last_name
-        person.position = position
-        if contact_no:
-            person.contact_no = contact_no
-        if description:
-            person.description = description
-        if image:
-            person.image = image
-        
-
-        person.save()
-        return redirect("/")
+            return redirect("/")
 
 
 class formerror:
@@ -64,7 +66,7 @@ def signup(request):
     pe = ""
     ue = ""
     newuser = User()
-    
+
     if request.method == "POST":
         newuser.username = request.POST["username"]
         newuser.password1 = request.POST["password1"]
