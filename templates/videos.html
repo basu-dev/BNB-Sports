@@ -2,8 +2,8 @@
 {%block content%}
 <div class="row">
     <div class=titlemain>Videos</div>
-    <div class="col-md-2"></div>
-    <div class="col-md-10 m-1">
+    <div class="col-md-1 col-lg-1"></div>
+    <div class="col-md-10 col-lg-10 m-1">
             <main>
                     {%for video in videos%}
                     
@@ -14,12 +14,22 @@
                     src="https://www.youtube.com/embed/{{video.url}}" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                     </iframe>
                     </div> 
-                    
+                    {% if user.is_authenticated %}
+                    <form method=post action= /delete_video/{{video.id}}>
+                      {%csrf_token%}
+                      <input type="hidden" name='url' value="/gallery">
+                    <span ><button type=submit class="fa fa-remove cofirm-delete bg-light"></button></span>
+                     </form> 
+                     {% endif %}
+                   
                     </div>
                     {%endfor%}
                     </main>
+                    {%if more %}
+                    <a href="/more_videos/{{smallest_id}}"><button class="btn btn-md">More Videos</button></a>
+                    {%endif%}
                     
     </div>
-    <div class="col-md-1"></div>
+    <div class="col-md-1 col-lg-1"></div>
 </div>
 {%endblock%}

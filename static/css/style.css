@@ -1,9 +1,8 @@
 main {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(25rem, 1fr)) [auto-fit];
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  
+  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 1rem;
   cursor: pointer;
 }
@@ -14,11 +13,12 @@ main .card {
   transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
   transition: transform 0.4s, -webkit-transform 0.4s;
+  height: 70vh;
 }
 
 main .card:hover {
   -webkit-transform: translateY(-5px);
-  transform: translateY(-5px);
+          transform: translateY(-5px);
   border: 2px solid #42b2f3;
 }
 
@@ -28,7 +28,6 @@ main .card .info {
 
 main .card img {
   width: 100%;
-  
 }
 
 main .card .desc {

@@ -74,7 +74,7 @@ def index(request):
     images = []
     for event in events:
         event.images = models.Images.objects.all().order_by("-id")
-
+        break
     return render(request, "gallery.html", {"events": events})
 
 
@@ -95,14 +95,13 @@ def post(request):
             post_form.save()
             id = str(post_form.id)
             for form in formset.cleaned_data:
-                # this helps to not crash if the user
-                # do not upload all the photos
+
                 if form:
                     image = form["image"]
                     photo = models.Images(post=post_form, image=image)
                     photo.save()
             messages.success(request, "Go to homepage to see changes")
-            return redirect("/admin_page/")
+            return redirect("/add_video/"+id)
         else:
             print(postForm.errors, formset.errors)
     else:
@@ -311,6 +310,8 @@ def videos(request):
         more = False
         ids = []
         videos = models.Videos.objects.all().order_by("-id")[:10]
+        for video in videos:
+            ids.append(video.id)
         count = videos.count()
         if count == 10:
             more = True
@@ -325,6 +326,7 @@ def videos(request):
             "videos.html",
             {"videos": videos, "smallest_id": smallest_id, "more": more},
         )
+  
 
     elif request.method == "POST":
         if request.user.is_authenticated:
@@ -349,6 +351,25 @@ def videos(request):
         else:
             return HttpResponse("There was an error.. Try again!!!")
         return redirect("/")
+def more_videos(request, id):
+    more = False
+    videos=models.Videos.objects.filter(id__lteid).order_by("-id")[:10]
+    for video in videos:
+        ids.append(video.id)
+    count = videos.count()
+    if count == 10:
+        more = True
+
+    if len(ids):
+        ids.sort()
+        smallest_id = ids[0]
+    else:
+        smallest_id = 0
+    return render(
+        request,
+        "videos.html",
+        {"videos": videos, "smallest_id": smallest_id, "more": more},
+    )
 
 
 @login_required

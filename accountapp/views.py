@@ -64,6 +64,7 @@ def signup(request):
     pe = ""
     ue = ""
     newuser = User()
+    
     if request.method == "POST":
         newuser.username = request.POST["username"]
         newuser.password1 = request.POST["password1"]
