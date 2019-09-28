@@ -14,6 +14,8 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha256-fzFFyH01cBVPYzl16KT40wqjhgPtq6FFUB6ckN2+GGw=" crossorigin="anonymous"></script>
+
   </div>
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -32,7 +34,7 @@
 <body class=text-white id="homepage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 
-
+<div id="home">
   <header>
     <div id="carouselExampleIndicators" class="carousel slide" style="position:relative" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -101,6 +103,7 @@
       </a>
     </div>
   </header>
+  </div>
 
   <div class="about jumbotron" id=about>
     <strong class=titlemain>ABOUT</strong>
@@ -108,7 +111,7 @@
 
   </div>
 
-  <div class=titlemain>TOP CLIENTS</div>
+  <div class=titlemain><h1>TOP CLIENTS</h1></div>
   <div class=close-clients>
       
       
@@ -127,7 +130,7 @@
  
   <div id="Events">
     <div class=titlemain>
-      <h1>EVENTS</h1>
+    <h1>OUR EVENTS</h1>
     </div>
     <div class="titlebox text-center">
       <div class="btn-group mt-0">
@@ -233,31 +236,29 @@
     <div class=about>
       <div class=titlemain id=team>OUR TEAM</div>
     </div>
-    <div style="overflow-x:hidden">
-      <div class=row>
-      {%for person in team%}
-      <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 profilecontainer">
-        <div class="imagecontain ">
-
-          <img class="img" src={{person.image.url}} style="height:100%;width:100%;object-fit:cover">
+    <div class="container">
+  <div class="row" style="margin-top: 88px;">
+  {%for person in team%}
+    <!-- Team Member 1 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow imagecontain">
+        <img class="img" src={{person.image.url}} style="height:100%;width:100%;object-fit:cover">
           <a href="/accounts/team_profile/{{person.id}}/">
             <div class="middle">
               <p class=text>View Profile</p>
             </div>
           </a>
-
           <div class="profilename">
             <div class="name">{{person.first_name}} {{person.last_name}}</div>
             <div class="position">{{person.position}}</div>
           </div>
-        </div>
-
       </div>
+    </div>
+    {%endfor%}
 
-      {%endfor%}
-      {%if user.is_authenticated%}
-      <div class="col-sm-6 col-md-6 col-lg-3">
-        <div class="imagecontain">
+    {%if user.is_authenticated%}
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-0 shadow imagecontain">
 
           <img class="img profileimage" src="../static/icons/B&Blogo.png"
             style="height:100%;width:100%;object-fit:cover">
@@ -272,8 +273,11 @@
 
     
     {%endif%}
-    </div>
+
   </div>
+  <!-- /.row -->
+
+</div>
 
 
 
@@ -398,6 +402,7 @@
 
 
   <script src="{% static 'js/bootstrap.min.js' %}" async defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha256-fzFFyH01cBVPYzl16KT40wqjhgPtq6FFUB6ckN2+GGw=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>

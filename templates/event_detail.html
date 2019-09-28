@@ -1,34 +1,38 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container text-white">
-<div class="title title-expanded text-white">{{event.title|title}}</div>
-<p class=date>{{event.created_date}}</p>
+<div class="container">
+<div class="title title-expanded text-black">{{event.title|title}}</div>
+<p>SEE YOU AT</P>
+<p class=date>{{event.event_date}}</p>
 <p class=desc>{{event.description}}</p>
 </div>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-10">
-      <main>
  
- 
+ <div class="container" style="display:flex">
           {% for eventimage in event.images.all %}
           
-          <div class="imagecontain" style="height:auto; " >
+          <div class="imagecontain" style="margin:2px;padding:0;display:inline-block;  " >
             
           
-                <a href="{{eventimage.image.url}}" data-toggle="lightbox" data-gallery="example-gallery" data-type="image" data-title={{event.title}} >
+                <a href="{{eventimage.image.url}}" data-toggle="lightbox" data-gallery="example-gallery" data-type="image" data-title={{event.title}}  >
                   
                         
                   <img class ="img-thumbnai" src={{eventimage.thumbnail.url}}   style="height:100%;width:100%;object-fit:cover" ></a>
+                  <span >
+                  {%if user.is_authenticated%}
                   <form method=post action= /delete_image/{{eventimage.id}}>
                     {%csrf_token%}
                     <input type="hidden" name='url' value="/event_detail/{{event.id}}">
-                  <span ><button type=submit class="fa fa-remove cofirm-delete bg-light"></button></span>
+                  <button type=submit class="fa fa-remove confirm-delete bg-light"></button>
                    </form> 
+                   </span>
+                   {%endif%}
                   
             </div>
             {% endfor %}
-        </main>
+            </div>
   </div>
   <div class="col-md-1"></div>
 </div>

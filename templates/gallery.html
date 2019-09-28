@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-{<main>
+{<main style="grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));">
 {% for event in  events%}
 {% for eventimage in event.images.all %}
 
@@ -10,13 +10,15 @@
       <a href="{{eventimage.image.url}}" data-toggle="lightbox" data-gallery="example-gallery" data-type="image" data-title={{event.title}} >
         
 							
-        <img class ="img-thumbnai" src={{eventimage.thumbnail.url}}   style="height:100%;width:100%;object-fit:cover" >
+        <img class ="img-thumbnai" src={{eventimage.thumbnail.url}}   style="height:100%;width:100%;object-fit:cover;border-radius: 7px;" >
         </a>
+        {% if user.is_authenticated %}
         <form method=post action= /delete_image/{{eventimage.id}}>
           {%csrf_token%}
           <input type="hidden" name='url' value="/gallery">
         <span ><button type=submit class="fa fa-remove cofirm-delete bg-light"></button></span>
          </form> 
+         {% endif %}
        
   </div>
   {% endfor %}

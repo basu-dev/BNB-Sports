@@ -18,12 +18,13 @@ body {
   overflow-x: hidden;
   margin: 0;
   font-family: "Montserrat";
-  background: radial-gradient(50% 50% at 50% 50%, #2b3780 0%, #0b1023 100%);
+  background: #f7f7f7;
+  /* background: radial-gradient(50% 50% at 50% 50%, #2b3780 0%, #0b1023 100%); */
   font-family: "Manjari", sans-serif;
 }
 
 h1 {
-  margin: 5rem;
+  margin: 2rem;
 }
 
 .logo_container {
@@ -42,7 +43,7 @@ h1 {
 .titlebox {
   position: relative;
   height: 200px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: 'Franklin Gothic Medium'sans-serif;
 }
 
 .btn-group {
@@ -52,6 +53,7 @@ h1 {
   left: 35%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .upcoming {
@@ -95,7 +97,7 @@ h1 {
 }
 
 .img {
-  border-radius: 2px;
+  border-radius: 7px;
   opacity: 1;
   transition: 0.5s ease;
   backface-visibility: hidden;
@@ -110,19 +112,22 @@ h1 {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .text {
   background-color: rgba(216, 224, 226, 0.7);
   border: 1px solid white;
-  border-radius: 30px;
+  border-radius: 13px;
   color: white;
   font-size: 1.4em;
-  padding: 10px 20px;
+  padding: 10px 10px;
   text-align: center;
   align-content: center;
   font-family: "Manjari";
   font-weight: bold;
+  display: inline-block;
 }
 
 .texta {
@@ -169,6 +174,7 @@ h1 {
 
 .date {
   font-family: "Rajdhani", sans-serif;
+  color: black;
 }
 
 .title-expanded {
@@ -187,7 +193,6 @@ a:active {
   .titlebox {
     position: relative;
     height: 200px;
-    font-family: "Rubik Mono One", sans-serif;
   }
 }
 
@@ -322,11 +327,13 @@ a:active {
 }
 
 .about {
-  margin: 1rem;
+  margin: 0rem;
   position: relative;
-  background-color: black;
+  background-color: #210d0d;
   font-family: "Rajdhani", sans-serif;
   font-size: 18px;
+  height: max-content;
+  border-radius: 0%
 }
 
 button .read-more {
@@ -374,6 +381,8 @@ main div .card {
   transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
   transition: transform 0.4s, -webkit-transform 0.4s;
+  background-color: #19191936;
+
 }
 
 main div .card:hover {
@@ -391,15 +400,14 @@ main div .card img {
 }
 
 main div .card .desc {
-  color: black;
+  color: #080200;
 }
 
 .imagecontain {
-  border: 2px solid white;
+  border: 2px solid #f7f7f7;
   border-radius: 5px;
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 201px;
 }
 
 .imagecontain .middle .text {
